@@ -13,7 +13,7 @@ export const routes: Routes = [
         children: [
           { path: '', redirectTo: 'profile', pathMatch: 'full' },
           { path: 'profile', component: ProfileComponent },
-          { path: 'leaverequest', component:  LeaveRequestComponent}
+          { path: 'leave-request', component:  LeaveRequestComponent}
         ]
       }
 ];
