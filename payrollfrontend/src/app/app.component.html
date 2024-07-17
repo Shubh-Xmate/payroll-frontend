@@ -1,2 +1,11 @@
-<!-- <h1>Hello world</h1> -->
- <router-outlet></router-outlet>
+<!-- src/app/app.component.html -->
+<div>
+    <h1>Angular Keycloak SSO</h1>
+    <button (click)="login()">Login</button>
+    <button (click)="logout()">Logout</button>
+    <div *ngIf="token">
+      <h2>Access Token</h2>
+      <p>{{ token }}</p>
+    </div>
+  </div>
+  
