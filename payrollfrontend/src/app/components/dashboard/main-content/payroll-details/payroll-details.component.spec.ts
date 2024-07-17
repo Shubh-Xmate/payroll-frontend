@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PayrollDetailsComponent } from './payroll-details.component';
+import {CommonModule} from "@angular/common";
 
 describe('PayrollDetailsComponent', () => {
   let component: PayrollDetailsComponent;
