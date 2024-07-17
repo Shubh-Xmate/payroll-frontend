@@ -17,10 +17,10 @@ export class CreateEmployeeComponent implements OnInit {
     lastName: '',
     mobileNumber: '',
     dob: new Date(),
-    managerId: 0,
+    managerId: null,
     roleId: '',
     dateOfJoining: new Date(),
-    salaryId: 0,
+    salaryId: null,
     employeeId: 0
   };
   sentSuccessfully: boolean = false;
