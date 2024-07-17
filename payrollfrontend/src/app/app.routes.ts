@@ -25,5 +25,5 @@ export const routes: Routes = [
           { path: 'create-employee', component:  CreateEmployeeComponent},
           { path: 'requested-leaves', component: RequestedLeavesComponent }
         ]
-      }
+    }
 ];
