@@ -41,4 +41,15 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <div *ngIf="showDetails">
+        <div *ngIf="sentSuccessfully" class="alert mt-3 alert-success">
+            <strong>Success!</strong> Request sent successfully.
+        </div>
+
+        <div *ngIf="!sentSuccessfully" class="alert mt-3 alert-danger">
+            <strong>Error!</strong> Request sending failed.
+        </div>
+    </div>
+
 </div>

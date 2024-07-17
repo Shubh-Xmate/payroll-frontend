@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IEmployee } from './employee.model';
 import { CreateEmployeeService } from '../../../../services/create-employee.service';
@@ -6,7 +7,7 @@ import { CreateEmployeeService } from '../../../../services/create-employee.serv
 @Component({
   selector: 'app-create-employee',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.css'
 })
@@ -22,6 +23,7 @@ export class CreateEmployeeComponent implements OnInit {
     salaryId: 0,
     employeeId: 0
   };
+  sentSuccessfully: boolean = false;
   showDetails: boolean = false;
 
   constructor(private createEmployeeService : CreateEmployeeService) { }
@@ -36,10 +38,13 @@ export class CreateEmployeeComponent implements OnInit {
         this.createEmployeeService.createEmployee(this.employee).subscribe({
           next: (response) => {
             console.log('Employee created successfully:', response);
+            this.sentSuccessfully = true;
             this.showDetails = true;
           },
           error: (error) => {
             console.error('Error creating employee:', error);
+            this.sentSuccessfully = false;
+            this.showDetails = true;
           }
         });
     }
