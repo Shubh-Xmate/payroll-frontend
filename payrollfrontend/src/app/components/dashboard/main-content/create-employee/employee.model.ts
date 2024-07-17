@@ -3,8 +3,9 @@ export interface IEmployee {
     lastName: string;
     mobileNumber: string;
     dob: Date;
-    managerId: string;
+    managerId: Number;
     roleId: string;
     dateOfJoining: Date;
-    salaryId: string;
+    salaryId: Number;
+    employeeId: Number;
 }

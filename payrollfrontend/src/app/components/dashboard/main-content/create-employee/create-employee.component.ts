@@ -15,10 +15,11 @@ export class CreateEmployeeComponent implements OnInit {
     lastName: '',
     mobileNumber: '',
     dob: new Date(),
-    managerId: '',
+    managerId: 0,
     roleId: '',
     dateOfJoining: new Date(),
-    salaryId: ''
+    salaryId: 0,
+    employeeId: 0
   };
 
   constructor() { }

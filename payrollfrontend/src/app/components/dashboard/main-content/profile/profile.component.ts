@@ -1,29 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Observer } from 'rxjs';
+import { ProfileService } from '../../../../services/profile.service';
 import { IEmployee } from '../create-employee/employee.model';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
-})
+    selector: 'app-profile',
+    standalone: true,
+    imports: [CommonModule, FormsModule],
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.css'
+  })
 
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
+  employeeId: Number = 0; 
   employee: IEmployee = {
-    firstName: 'John',
-    lastName: 'Doe',
-    mobileNumber: '123-456-7890',
-    dob: new Date(1990, 1, 1),
-    managerId: 'MGR001',
-    roleId: 'ROLE001',
-    dateOfJoining: new Date(2015, 6, 15),
-    salaryId: 'SAL001'
+    firstName: '',
+    lastName: '',
+    mobileNumber: '',
+    dob: new Date(),
+    managerId: 0,
+    roleId: '',
+    dateOfJoining: new Date(),
+    salaryId: 0,
+    employeeId: 0
   };
+  ;
+  showDetails: boolean = false;
 
-  constructor() { }
+  constructor(private profileService : ProfileService) {}
 
-  ngOnInit(): void {
-    // Fetch employee data from service or initialize as shown
+  onSubmit() {
+    if (this.employeeId) {
+      const observer: Observer<IEmployee> = {
+        next: (data) => {
+          this.employee = data;
+          this.showDetails = true;
+        },
+        error: (error) => {
+          console.error('Error fetching employee details', error);
+        },
+        complete: () => {
+        }
+      };
+
+      this.profileService.getEmployeeDetails(this.employeeId).subscribe(observer);
+    }
   }
 }
