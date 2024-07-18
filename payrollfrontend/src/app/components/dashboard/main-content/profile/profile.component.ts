@@ -14,7 +14,7 @@ import { IEmployee } from '../create-employee/employee.model';
   })
 
 export class ProfileComponent {
-  employeeId: Number = 0; 
+  employeeId: Number = 0;
   employee: IEmployee = {
     firstName: '',
     lastName: '',
@@ -26,7 +26,6 @@ export class ProfileComponent {
     salaryId: 0,
     employeeId: 0
   };
-  ;
   showDetails: boolean = false;
 
   constructor(private profileService : ProfileService) {}
