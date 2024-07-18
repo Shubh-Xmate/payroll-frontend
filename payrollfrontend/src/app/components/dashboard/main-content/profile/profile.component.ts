@@ -26,6 +26,7 @@ export class ProfileComponent {
     salaryId: 0,
     employeeId: 0
   };
+
   showDetails: boolean = false;
 
   constructor(private profileService : ProfileService) {}

@@ -12,8 +12,8 @@ import { RequestedLeavesComponent } from './components/dashboard/main-content/re
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent},
-    { 
-        path: 'dashboard', 
+    {
+        path: 'dashboard',
         component: DashboardComponent,
         children: [
           { path: '', redirectTo: 'profile', pathMatch: 'full' },
